@@ -14,10 +14,12 @@ import CatMockBanner from "../components/CatMockBanner";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import HomepagePopup from "@/components/HomepagePopup";
 
 export default function Home() {
   return (
     <>
+      <HomepagePopup />
       <Header />
       <HeroSection />
       <SuccessStories />
