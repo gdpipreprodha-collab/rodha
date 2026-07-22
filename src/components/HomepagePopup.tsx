@@ -5,6 +5,18 @@ import popupImage from "../assets/images/popup/popup.png";
 export default function HomepagePopup() {
   const [isOpen, setIsOpen] = useState(true);
 
+  const handlePackageClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setIsOpen(false);
+    window.history.pushState(null, "", "/#package");
+
+    window.setTimeout(() => {
+      document
+        .getElementById("package")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+  };
+
   useEffect(() => {
     if (!isOpen) return;
 
@@ -46,11 +58,18 @@ export default function HomepagePopup() {
           <X aria-hidden="true" className="size-6" strokeWidth={2.5} />
         </button>
 
-        <img
-          src={popupImage}
-          alt="Rodha mock packages now include VARC and QA concept capsules"
-          className="block max-h-[94vh] w-auto max-w-full object-contain"
-        />
+        <a
+          href="/#package"
+          onClick={handlePackageClick}
+          aria-label="View Rodha mock packages"
+          className="block cursor-pointer"
+        >
+          <img
+            src={popupImage}
+            alt="Rodha mock packages now include VARC and QA concept capsules"
+            className="block max-h-[94vh] w-auto max-w-full object-contain"
+          />
+        </a>
       </div>
     </div>
   );
