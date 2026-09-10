@@ -15,11 +15,13 @@ import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import HomepagePopup from "@/components/HomepagePopup";
+import WhatsAppGroupCta from "@/components/WhatsAppGroupCta";
 
 export default function Home() {
   return (
     <>
       <HomepagePopup />
+      <WhatsAppGroupCta />
       <Header />
       <HeroSection />
       <SuccessStories />
