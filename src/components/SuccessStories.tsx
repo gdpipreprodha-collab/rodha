@@ -1,164 +1,164 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import stories_1 from '../assets/images/stories/black-carbon-texture.jpg';
-import testmonislteam from '../assets/images/testimonials/images.png';
-import testmonislteam1 from '../assets/images/testimonials/2.png';
-import testmonislteam2 from '../assets/images/testimonials/latest.png';
+import storyBackground from "../assets/images/stories/black-carbon-texture.jpg";
+
+type Exam = "CAT" | "XAT" | "SNAP";
+
+const orderedUrls = (modules: Record<string, unknown>) =>
+  Object.entries(modules)
+    .sort(([first], [second]) =>
+      first.localeCompare(second, undefined, { numeric: true }),
+    )
+    .map(([, url]) => url as string);
+
+const catImages = orderedUrls(
+  import.meta.glob("../assets/images/stories/cat-2025/*.jpg", {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }),
+);
+const xatImages = orderedUrls(
+  import.meta.glob("../assets/images/stories/xat-2025/*.jpg", {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }),
+);
+const snapImages = orderedUrls(
+  import.meta.glob("../assets/images/stories/snap-2025/*.jpg", {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }),
+);
+
+const examData: Record<
+  Exam,
+  { title: string; mainStat: string; highlights: string[]; images: string[] }
+> = {
+  CAT: {
+    title: "CAT 2025 Toppers",
+    mainStat: "10+ Scored 99.90+ %ile",
+    highlights: [
+      "60+ students with 99.50+ %ile in CAT 2025",
+      "150+ students with 99+ %ile in CAT 2025",
+      "210+ BLACKI Converts",
+      "3000+ Top B-School Converts Till Now",
+    ],
+    images: catImages,
+  },
+  XAT: {
+    title: "XAT 2025 Toppers",
+    mainStat: "25+ XLRI Conversions",
+    highlights: [],
+    images: xatImages,
+  },
+  SNAP: {
+    title: "SNAP 2025 Toppers",
+    mainStat: "68+ SNAP Conversions",
+    highlights: [],
+    images: snapImages,
+  },
+};
 
 export default function SuccessStories() {
-  const [activeTab, setActiveTab] = useState("CAT");
-
-  const images: Record<string, string> = {
-    CAT: testmonislteam,
-    XAT: testmonislteam2,
-    SNAP: testmonislteam1,
-  };
-
-  const examData = {
-    CAT: {
-      title: "CAT 2024 Toppers",
-      year: "2024",
-      mainStat: "10+ Scored 99.90+",
-      highlights: [
-        { text: "30+ Scored", color: "#6EE6FF" },
-        { text: "99.50+ %ile", color: "#ffffffff" },
-        { text: "75+ Scored", color: "#FD6A02" },
-        { text: "99+ %ile", color: "#6EE6FF"},
-      ]
-    },
-    XAT: {
-      title: "XAT 2025 Toppers",
-      year: "2025",
-      mainStat: "12+ Scored 99.5+",
-      highlights: [
-        { text: "30+ Scored", color: "#6EE6FF" },
-        { text: "99+ %ile", color: "#ffffffff" },
-        { text: "", color: "#FD6A02" },
-        { text: "", color: "#6EE6FF"},
-      ]
-    },
-    SNAP: {
-      title: "SNAP 2024 Toppers",
-      year: "2024",
-      mainStat: "10+ Scored 99.75+",
-      highlights: [
-        { text: "25+ Scored", color: "#6EE6FF" },
-        { text: "99+ %ile", color: "#ffffffff" },
-        { text: "", color: "#FD6A02" },
-        { text: "", color: "#6EE6FF"},
-      ]
-    }
-  };
-
-  const cardStyle = (tab: string) =>
-    `relative transition-all duration-300 ease-in-out p-4 md:p-6 rounded-md bg-cover bg-center text-white overflow-hidden 
-     flex flex-col justify-between ${activeTab !== tab
-      ? "w-full md:w-44 cursor-pointer min-h-[150px]"
-      : "flex-1 h-[480px]"
-    }`;
-
-  const CollapsedCard = (exam: string) => {
-    const data = examData[exam as keyof typeof examData];
-    
-    return (
-      <div id="success-stories" className="h-[50px] sm:h-auto transition-all duration-300 ease-in-out">
-        <div className="sm:rotate-[-90deg] text-center md:text-left relative">
-          <h4 className="text-lg sm:text-3xl font-semibold w-[500px] absolute left-[-9rem] sm:left-auto sm:right-[-6rem] top-[0rem] sm:top-[-3rem]">
-            {data.title}
-          </h4>
-          <p className="text-[#FD6A02] text-xl w-[500px] absolute left-[-8rem] sm:left-auto sm:right-[-6rem] top-[2rem] sm:top-[0rem]">
-            {data.mainStat}<span className="text-[#FD6A02]">ile</span>
-          </p>
-        </div>
-        <div className="absolute bottom-5 right-6 text-3xl">❯</div>
-      </div>
-    );
-  };
-
-  const ExpandedCard = (exam: string) => {
-    const data = examData[exam as keyof typeof examData];
-    
-    return (
-      <>
-        <div className="absolute bottom-2 right-2 text-2xl">❮</div>
-        <div className="flex flex-col h-full justify-between">
-          <div>
-            <h3 className="text-xl md:text-5xl font-bold text-left text-white">
-              <span className="text-[#FD6A02]">{exam} {data.year}</span> Toppers
-            </h3>
-            <p className="mb-6 mt-3 text-2xl md:text-4xl text-left">
-              <span className="text-[#FD6A02] font-bold">{data.mainStat}</span>
-              <span className="text-[#FD6A02]">ile</span>
-            </p>
-          </div>
-          
-      <div className="flex flex-col md:flex-row gap-6 w-full">
-  <ul className="text-base md:text-2xl text-left space-y-2 w-full md:w-1/3">
-    {data.highlights.map((item, index) => (
-      <li 
-        key={index} 
-        className={`py-0 ${index === 2 ? 'sm:pt-[30px] pt-[15px]' : ''}`}  
-      >
-        <span className={"font-bold text-2xl sm:text-3xl"} style={{ color: item.color }}>
-          {item.text}
-        </span>
-      </li>
-    ))}
-  </ul>
-  
-  <div className="w-full md:w-2/3 flex items-center justify-center">
-    <img
-      src={images[exam]}
-      className="w-full h-auto max-h-[250px] object-contain rounded-md shadow"
-      alt={`${exam} topper`}
-    />
-  </div>
-</div>
-        </div>
-      </>
-    );
-  };
+  const [activeTab, setActiveTab] = useState<Exam>("CAT");
 
   return (
     <motion.section
-      className="max-w-7xl mx-auto w-full py-10 px-4 md:px-0"
+      id="success-stories"
+      className="mx-auto w-full max-w-7xl px-4 py-10 md:px-0"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <h2 className="text-2xl md:text-4xl font-semibold text-center mb-10">
+      <h2 className="mb-10 text-center text-2xl font-semibold md:text-4xl">
         Rodha <span className="text-[#FD6A02]">Success Stories</span>
       </h2>
 
-      <div className="flex flex-col md:flex-row gap-6 md:gap-4 transition-all duration-500">
-        {Object.keys(examData).map((exam) => (
-          <motion.div
-            key={exam}
-            className={cardStyle(exam)}
-            style={{
-              backgroundImage: `url(${stories_1})`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-            }}
-            onClick={() => setActiveTab(exam)}
-            whileHover={{ scale: activeTab === exam ? 1 : 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            {activeTab === exam ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-                className="w-full h-full"
-              >
-                {ExpandedCard(exam)}
-              </motion.div>
-            ) : (
-              CollapsedCard(exam)
-            )}
-          </motion.div>
-        ))}
+      <div className="flex flex-col gap-4 md:flex-row">
+        {(Object.keys(examData) as Exam[]).map((exam) => {
+          const data = examData[exam];
+          const isActive = activeTab === exam;
+
+          return (
+            <motion.button
+              key={exam}
+              type="button"
+              onClick={() => setActiveTab(exam)}
+              aria-expanded={isActive}
+              className={`relative overflow-hidden rounded-lg bg-cover bg-center p-5 text-left text-white shadow-lg transition-all duration-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FD6A02]/50 ${
+                isActive
+                  ? "min-h-[600px] flex-1 md:min-h-[520px]"
+                  : "min-h-[120px] w-full cursor-pointer md:min-h-[520px] md:w-36"
+              }`}
+              style={{ backgroundImage: `url(${storyBackground})` }}
+              whileHover={{ scale: isActive ? 1 : 1.02 }}
+            >
+              {isActive ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex h-full flex-col"
+                >
+                  <div>
+                    <h3 className="text-3xl font-bold md:text-5xl">
+                      <span className="text-[#FD6A02]">{exam} 2025</span> Toppers
+                    </h3>
+                    <p className="mt-3 text-2xl font-bold text-[#FD6A02] md:text-4xl">
+                      {data.mainStat}
+                    </p>
+                  </div>
+
+                  <div className="mt-7 grid flex-1 items-center gap-7 lg:grid-cols-[minmax(240px,0.8fr)_1.2fr]">
+                    <div>
+                      {data.highlights.length > 0 ? (
+                        <ul className="space-y-4 text-base font-semibold md:text-xl">
+                          {data.highlights.map((highlight) => (
+                            <li key={highlight} className="leading-snug">
+                              {highlight}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-lg text-gray-300 md:text-xl">
+                          Celebrating our outstanding {data.title}.
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-6 gap-2 sm:gap-3">
+                      {data.images.map((image, index) => (
+                        <img
+                          key={image}
+                          src={image}
+                          alt={`${data.title} student ${index + 1}`}
+                          loading="lazy"
+                          className="aspect-square w-full rounded-full border-2 border-[#FD6A02]/70 object-cover shadow-md"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <span className="absolute bottom-3 right-4 text-2xl" aria-hidden="true">
+                    ❮
+                  </span>
+                </motion.div>
+              ) : (
+                <div className="flex h-full items-center justify-between gap-4 md:flex-col md:justify-center">
+                  <div className="md:[writing-mode:vertical-rl] md:rotate-180">
+                    <h3 className="text-xl font-bold md:text-2xl">{data.title}</h3>
+                    <p className="mt-2 font-semibold text-[#FD6A02] md:mt-4">
+                      {data.mainStat}
+                    </p>
+                  </div>
+                  <span className="text-2xl" aria-hidden="true">❯</span>
+                </div>
+              )}
+            </motion.button>
+          );
+        })}
       </div>
     </motion.section>
   );

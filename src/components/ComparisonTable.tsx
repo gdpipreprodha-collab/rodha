@@ -6,7 +6,7 @@ export default function ComparisonTable() {
     "OMETs Full Length Mocks\n(NMAT, SNAP, & XAT)",
     "CAT Sectional Tests",
     "Video Solutions",
-    "CAT Topic Tests\n(VARC and QA)",
+    "CAT Topic Tests\n(VARC, LRDI & QA)",
     "Percentile Tracker",
   ];
 
@@ -28,6 +28,22 @@ export default function ComparisonTable() {
       values: ["✕", "✕", "105", "✔", "40+", "✔"],
     },
     {
+      name: "Mini Mocks",
+      values: ["15", "✕", "✕", "✔", "✔", "✔"],
+    },
+    {
+      name: "Mini Sectionals",
+      values: ["✕", "✕", "60", "✔", "✔", "✔"],
+    },
+    {
+      name: "Mini Combo",
+      values: ["10", "✕", "30", "✔", "✔", "✔"],
+    },
+    {
+      name: "Individual Sectionals",
+      values: ["✕", "✕", "35", "✔", "✔", "✔"],
+    },
+    {
       name: "RODHA\nFree Mocks",
       values: ["01", "✕", "03", "✔", "5 QA\n2 VARC", "✕"],
     },
@@ -36,7 +52,7 @@ export default function ComparisonTable() {
   return (
     <div className="bg-white dark:bg-[#242424] px-2 sm:px-4 py-12 w-full">
       <div className="overflow-x-auto max-w-7xl mx-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent">
-        <table className="w-full min-w-[950px] border-separate border-spacing-2 text-xs sm:text-sm md:text-base transition-all duration-300">
+        <table className="w-full min-w-[1550px] border-separate border-spacing-2 text-xs sm:text-sm md:text-base transition-all duration-300">
           <thead>
             <tr>
               <th className="w-[220px] bg-black text-white px-2 sm:px-2 py-3 text-center font-semibold rounded-lg whitespace-pre-line transition-transform duration-300 hover:scale-105 cursor-pointer">
@@ -62,7 +78,7 @@ export default function ComparisonTable() {
                   const value = plan.values[rowIdx];
                   const isCheck = value === "✔";
                   const isCross = value === "✕";
-                  const isHighlightedColumn = colIdx === 1 || colIdx === 3;
+                  const isHighlightedColumn = colIdx % 2 === 1;
 
                   const bgColor = isHighlightedColumn
                     ? "bg-[#262626] dark:bg-[#242424] border border-[#5b5b5b]"

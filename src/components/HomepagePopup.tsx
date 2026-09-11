@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import popupImage from "../assets/images/popup/popup.png";
+import popupImage from "../assets/images/popup/popup-2025.jpeg";
 
 export default function HomepagePopup() {
   const [isOpen, setIsOpen] = useState(true);
@@ -42,12 +42,12 @@ export default function HomepagePopup() {
       className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/80 p-3 backdrop-blur-sm sm:p-6"
       role="dialog"
       aria-modal="true"
-      aria-label="Rodha mock packages announcement"
+      aria-label="Rodha mock packages and mini series announcement"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) setIsOpen(false);
       }}
     >
-      <div className="relative max-h-[94vh] max-w-[min(94vw,760px)] overflow-hidden rounded-xl bg-black shadow-2xl ring-1 ring-white/20">
+      <div className="relative w-full max-w-[760px] overflow-hidden rounded-xl bg-black shadow-2xl ring-1 ring-white/20">
         <button
           type="button"
           onClick={() => setIsOpen(false)}
@@ -66,8 +66,8 @@ export default function HomepagePopup() {
         >
           <img
             src={popupImage}
-            alt="Rodha mock packages now include VARC and QA concept capsules"
-            className="block max-h-[94vh] w-auto max-w-full object-contain"
+            alt="Rodha CAT mock packages and Rodha mini mock series plans"
+            className="block h-auto max-h-[94vh] w-full object-contain"
           />
         </a>
       </div>

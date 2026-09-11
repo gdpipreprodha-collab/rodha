@@ -4,7 +4,6 @@ const StatBox = ({ target, label, orange }: { target: number, label: React.React
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    let start = 0;
     const duration = 3500; // slower: 2.5 seconds
     const startTime = performance.now();
 
@@ -38,22 +37,22 @@ const StatsSection = () => {
     <div className="bg-[#1c1c1c] text-white py-10 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-gray-600">
         <StatBox
-          target={30}
-          label={"Students with 99.50+<br />Percentile in CAT 2024"}
+          target={60}
+          label={"Students with 99.50+<br />Percentile in CAT 2025"}
           orange
         />
         <StatBox
-          target={10}
-          label={"Students with 99.75+<br />Percentile in SNAP 2024"}
+          target={20}
+          label={"Students with 99.75+<br />Percentile in SNAP 2025"}
         />
         <StatBox
-          target={50}
-          label={"BLACKI Converts<br />in 2024"}
+          target={150}
+          label={"BLACKI Converts<br />in 2025"}
           orange
         />
         <StatBox
-          target={90}
-          label={"Converts in BLACKI, XLRI,<br />SPJAIN in 2024"}
+          target={180}
+          label={"Converts in BLACKI, XLRI,<br />SPJAIN in 2025"}
         />
       </div>
     </div>
