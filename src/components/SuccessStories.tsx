@@ -140,13 +140,17 @@ export default function SuccessStories() {
                       {data.images.map((image, index) => (
                         <div
                           key={image}
-                          className="aspect-square overflow-hidden rounded-full border-2 border-[#FD6A02]/70 shadow-md"
+                          className="relative aspect-square overflow-hidden rounded-full border-2 border-[#FD6A02]/70 shadow-md"
                         >
                           <img
                             src={image}
                             alt={`${data.title} student ${index + 1}`}
                             loading="lazy"
-                            className="h-full w-full scale-[1.22] object-cover object-[center_28%]"
+                            className={
+                              exam === "CAT" && index === 14
+                                ? "absolute left-1/2 top-0 h-auto w-[250%] max-w-none -translate-x-1/2"
+                                : "h-full w-full scale-[1.22] object-cover object-[center_28%]"
+                            }
                           />
                         </div>
                       ))}

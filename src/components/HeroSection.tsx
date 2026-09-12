@@ -79,10 +79,10 @@ const HeroSection = () => {
           </div>
           <div className="absolute right-0 top-[7%] z-20 max-w-[150px] rounded-xl bg-white px-3 py-3 text-left text-black shadow-xl sm:max-w-[190px] sm:px-4">
             <strong className="block text-lg leading-tight text-[#FF6B00] sm:text-2xl">
-              150+ TWIN-SCORE
+              150+ 99%ILERS
             </strong>
             <span className="text-xs font-semibold leading-tight sm:text-base">
-              99+ percentile in CAT 2025
+              in CAT 2025
             </span>
           </div>
           <img
