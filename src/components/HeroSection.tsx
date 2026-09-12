@@ -1,15 +1,7 @@
 import React from 'react';
-import Hero_1 from '../assets/images/hero/hero-1.png';
+import Hero_1 from '../assets/images/hero/hero-2025.png';
 import Bg_Back from '../assets/images/hero/bg-back.jpg';
 import { motion } from 'framer-motion';
-
-const Heros_1 = import.meta.glob('/src/assets/images/team/team-*.png', { eager: true });
-const sortedImageKeys = Object.keys(Heros_1).sort((a, b) => {
-  const numA = parseInt(a.match(/team-(\d+)/)?.[1] || '0', 10);
-  const numB = parseInt(b.match(/team-(\d+)/)?.[1] || '0', 10);
-  return numA - numB;
-});
-const Heros_1Array = sortedImageKeys.map(key => (Heros_1[key] as any).default);
 
 const HeroSection = () => {
   return (
@@ -75,12 +67,28 @@ const HeroSection = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="relative flex justify-center items-center pt-0 sm:pt-10"
+          className="relative flex min-h-[470px] items-end justify-center pt-8 sm:min-h-[560px] sm:pt-10"
         >
+          <div className="absolute left-0 top-[34%] z-20 max-w-[145px] rounded-xl bg-white px-3 py-3 text-left text-black shadow-xl sm:max-w-[180px] sm:px-4">
+            <strong className="block text-lg leading-tight text-[#FF6B00] sm:text-2xl">
+              210+ BLACKI
+            </strong>
+            <span className="text-xs font-semibold leading-tight sm:text-base">
+              Converts in CAT 2025
+            </span>
+          </div>
+          <div className="absolute right-0 top-[7%] z-20 max-w-[150px] rounded-xl bg-white px-3 py-3 text-left text-black shadow-xl sm:max-w-[190px] sm:px-4">
+            <strong className="block text-lg leading-tight text-[#FF6B00] sm:text-2xl">
+              150+ TWIN-SCORE
+            </strong>
+            <span className="text-xs font-semibold leading-tight sm:text-base">
+              99+ percentile in CAT 2025
+            </span>
+          </div>
           <img
             src={Hero_1}
-            alt="Rodha Mentor"
-            className="w-full max-w-full sm:max-w-md md:max-w-full rounded-xl shadow-lg"
+            alt="Ravi Sir, Rodha mentor"
+            className="relative z-10 max-h-[540px] w-auto max-w-full object-contain object-bottom sm:max-h-[620px]"
           />
         </motion.div>
       </div>

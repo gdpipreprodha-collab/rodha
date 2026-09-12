@@ -5,12 +5,10 @@ type Program = {
   name: string;
   price: string;
   oldPrice?: string;
-  summary?: string;
   features: string[];
   href: string;
   recommended?: boolean;
   mini?: boolean;
-  dark?: boolean;
 };
 
 const purchasePortal = "https://exam.rodha.co.in/";
@@ -18,7 +16,8 @@ const purchasePortal = "https://exam.rodha.co.in/";
 const programs: Program[] = [
   {
     name: "Rodha CAT Mocks And OMETs Package Test",
-    price: "₹6,999/-",
+    oldPrice: "₹6,999",
+    price: "₹6,299/-",
     features: [
       "30 Full-length CAT Mocks",
       "10 XAT, 25 SNAP, And 15 NMAT Mocks",
@@ -33,7 +32,8 @@ const programs: Program[] = [
   },
   {
     name: "Rodha CAT Mocks & Sectional Tests",
-    price: "₹5,999/-",
+    oldPrice: "₹5,999",
+    price: "₹5,399/-",
     features: [
       "30 Full-length CAT Mocks",
       "105 Sectional Tests",
@@ -46,7 +46,8 @@ const programs: Program[] = [
   },
   {
     name: "Rodha CAT Mocks",
-    price: "₹3,499/-",
+    oldPrice: "₹3,499",
+    price: "₹3,149/-",
     features: [
       "30 Full-length CAT Mocks",
       "Comprehensive Video Solutions",
@@ -57,7 +58,8 @@ const programs: Program[] = [
   },
   {
     name: "Rodha Sectional Tests",
-    price: "₹3,499/-",
+    oldPrice: "₹3,499",
+    price: "₹3,149/-",
     features: [
       "105 Sectional Tests",
       "40+ Topic-wise Practice Modules",
@@ -68,8 +70,7 @@ const programs: Program[] = [
     href: "https://exam.rodha.co.in/packages/RodhaSectionalTests/MTYwMg==",
   },
   {
-    name: "01. Mini Mocks",
-    summary: "15 RCM",
+    name: "Mini Mocks",
     oldPrice: "₹4,000",
     price: "₹2,999/-",
     features: [
@@ -82,8 +83,7 @@ const programs: Program[] = [
     mini: true,
   },
   {
-    name: "02. Mini Sectionals",
-    summary: "20 RCS × 3",
+    name: "Mini Sectionals",
     oldPrice: "₹2,500",
     price: "₹1,999/-",
     features: [
@@ -94,11 +94,9 @@ const programs: Program[] = [
     ],
     href: purchasePortal,
     mini: true,
-    dark: true,
   },
   {
-    name: "03. Mini Combo",
-    summary: "10 RCM + 30 RCS",
+    name: "Mini Combo",
     oldPrice: "₹3,500",
     price: "₹2,499/-",
     features: [
@@ -111,8 +109,7 @@ const programs: Program[] = [
     mini: true,
   },
   {
-    name: "04. Individual Sectionals",
-    summary: "35 sectionals of any one subject",
+    name: "Individual Sectionals",
     oldPrice: "₹2,500",
     price: "₹1,499/-",
     features: [
@@ -121,19 +118,6 @@ const programs: Program[] = [
     ],
     href: purchasePortal,
     mini: true,
-    dark: true,
-  },
-  {
-    name: "Rodha Free Mocks",
-    price: "Free",
-    features: [
-      "1 Full Length CAT Mock",
-      "3 Sectional Tests",
-      "5 Topic Tests From Quantitative Aptitude",
-      "2 Topic Tests From VARC",
-      "Complete Video Solutions",
-    ],
-    href: "https://exam.rodha.co.in/startTest/NA/MTI4Nzk2MzU=",
   },
 ];
 
@@ -153,7 +137,7 @@ export default function MockPrograms() {
 
         <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-1 sm:grid sm:grid-cols-2 sm:overflow-x-visible sm:snap-none lg:grid-cols-3">
           {programs.map((program) => {
-            const darkCard = program.mini && program.dark;
+            const darkCard = program.mini;
 
             return (
               <article
@@ -161,9 +145,7 @@ export default function MockPrograms() {
                 className={`group relative flex min-w-[85%] snap-start flex-col rounded-xl border-2 p-6 text-left transition duration-300 sm:min-w-0 ${
                   darkCard
                     ? "border-[#454545] bg-[#171717] text-white"
-                    : program.mini
-                      ? "border-[#dfc6ae] bg-[#f2e3d5] text-[#171717]"
-                      : "border-gray-200 bg-white hover:bg-gradient-to-r hover:from-[#1c1c1c] hover:to-[#454546] hover:text-white dark:border-[#7c7c7c] dark:bg-[#1C1C1C]"
+                    : "border-gray-200 bg-white hover:bg-gradient-to-r hover:from-[#1c1c1c] hover:to-[#454546] hover:text-white dark:border-[#7c7c7c] dark:bg-[#1C1C1C]"
                 }`}
               >
                 {program.recommended && (
@@ -179,11 +161,6 @@ export default function MockPrograms() {
                 <h3 className="mb-2 cursor-default text-3xl font-semibold">
                   {program.name}
                 </h3>
-                {program.summary && (
-                  <p className="mb-3 text-lg font-bold uppercase tracking-wide">
-                    {program.summary}
-                  </p>
-                )}
                 <div className="mb-4 flex flex-wrap items-baseline gap-2">
                   {program.oldPrice && (
                     <span className="text-lg text-gray-500 line-through dark:text-gray-400">
@@ -198,9 +175,7 @@ export default function MockPrograms() {
                   className={`flex-1 space-y-2 pt-4 text-sm font-bold ${
                     darkCard
                       ? "text-gray-200"
-                      : program.mini
-                        ? "text-[#292929]"
-                        : "text-gray-700 group-hover:text-white dark:text-gray-300"
+                      : "text-gray-700 group-hover:text-white dark:text-gray-300"
                   }`}
                 >
                   {program.features.map((feature) => (
@@ -218,7 +193,7 @@ export default function MockPrograms() {
                   rel="noopener noreferrer"
                   className="mt-6 w-fit rounded-full bg-[#FF6B00] px-10 py-2 text-sm font-semibold text-white transition duration-300 hover:bg-white hover:text-black focus:outline-none focus-visible:ring-4 focus-visible:ring-[#FF6B00]/40"
                 >
-                  {program.mini ? "Get Now" : "Buy Now"}
+                  {program.mini ? "BUY NOW" : "Buy Now"}
                 </a>
               </article>
             );

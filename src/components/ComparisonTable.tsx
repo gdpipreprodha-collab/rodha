@@ -43,25 +43,27 @@ export default function ComparisonTable() {
       name: "Individual Sectionals",
       values: ["✕", "✕", "35", "✔", "✔", "✔"],
     },
-    {
-      name: "RODHA\nFree Mocks",
-      values: ["01", "✕", "03", "✔", "5 QA\n2 VARC", "✕"],
-    },
   ];
 
   return (
-    <div className="bg-white dark:bg-[#242424] px-2 sm:px-4 py-12 w-full">
-      <div className="overflow-x-auto max-w-7xl mx-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent">
-        <table className="w-full min-w-[1550px] border-separate border-spacing-2 text-xs sm:text-sm md:text-base transition-all duration-300">
+    <div className="w-full bg-white px-1 py-12 dark:bg-[#242424] sm:px-3">
+      <div className="mx-auto max-w-7xl overflow-hidden">
+        <table className="w-full table-fixed border-separate border-spacing-1 text-[6px] transition-all duration-300 sm:text-[8px] md:text-[11px] lg:text-sm">
+          <colgroup>
+            <col className="w-[18%]" />
+            {plans.map((plan) => (
+              <col key={plan.name} />
+            ))}
+          </colgroup>
           <thead>
             <tr>
-              <th className="w-[220px] bg-black text-white px-2 sm:px-2 py-3 text-center font-semibold rounded-lg whitespace-pre-line transition-transform duration-300 hover:scale-105 cursor-pointer">
+              <th className="rounded bg-black px-0.5 py-2 text-center font-semibold leading-tight text-white whitespace-pre-line sm:rounded-md sm:px-1 md:rounded-lg md:py-3">
                 Products & Features
               </th>
               {plans.map((plan, i) => (
                 <th
                   key={i}
-                  className="w-[160px] bg-black text-white px-2 sm:px-2 py-3 text-center font-semibold rounded-lg whitespace-pre-line transition-transform duration-300 hover:scale-105 cursor-pointer"
+                  className="rounded bg-black px-0.5 py-2 text-center font-semibold leading-tight text-white whitespace-pre-line sm:rounded-md sm:px-1 md:rounded-lg md:py-3"
                 >
                   {plan.name}
                 </th>
@@ -71,7 +73,7 @@ export default function ComparisonTable() {
           <tbody>
             {features.map((feature, rowIdx) => (
               <tr key={rowIdx}>
-                <td className="w-[220px] bg-[#3e3e3e] text-white px-3 sm:px-4 py-4 text-center font-medium whitespace-pre-line rounded-lg transition duration-300 hover:scale-105 cursor-pointer">
+                <td className="rounded bg-[#3e3e3e] px-0.5 py-3 text-center font-medium leading-tight text-white whitespace-pre-line sm:rounded-md sm:px-1 md:rounded-lg md:px-2 md:py-4">
                   {feature}
                 </td>
                 {plans.map((plan, colIdx) => {
@@ -94,7 +96,7 @@ export default function ComparisonTable() {
                   return (
                     <td
                       key={colIdx}
-                      className={`w-[160px] px-3 sm:px-4 py-4 h-20 text-center font-semibold whitespace-pre-line text-xs sm:text-sm md:text-base rounded-lg transition duration-300 hover:scale-105 cursor-pointer ${bgColor} ${textColor}`}
+                      className={`h-14 rounded px-0.5 py-3 text-center font-semibold leading-tight whitespace-pre-line sm:h-16 sm:rounded-md sm:px-1 md:h-20 md:rounded-lg md:px-2 md:py-4 ${bgColor} ${textColor}`}
                     >
                       {value}
                     </td>

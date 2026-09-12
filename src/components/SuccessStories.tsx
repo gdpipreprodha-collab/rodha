@@ -41,10 +41,10 @@ const examData: Record<
     title: "CAT 2025 Toppers",
     mainStat: "10+ Scored 99.90+ %ile",
     highlights: [
-      "60+ students with 99.50+ %ile in CAT 2025",
-      "150+ students with 99+ %ile in CAT 2025",
-      "210+ BLACKI Converts",
-      "3000+ Top B-School Converts Till Now",
+      "60+ students with 99.50+ percentile",
+      "150 students with 99+ percentile",
+      "210+ BLACKI converts",
+      "3,000+ top B-school converts till now",
     ],
     images: catImages,
   },
@@ -112,13 +112,20 @@ export default function SuccessStories() {
                     </p>
                   </div>
 
-                  <div className="mt-7 grid flex-1 items-center gap-7 lg:grid-cols-[minmax(240px,0.8fr)_1.2fr]">
+                  <div className="mt-7 grid flex-1 items-center gap-7 lg:grid-cols-[minmax(330px,0.9fr)_1.1fr]">
                     <div>
                       {data.highlights.length > 0 ? (
-                        <ul className="space-y-4 text-base font-semibold md:text-xl">
+                        <ul className="space-y-3 text-base font-semibold md:text-lg">
                           {data.highlights.map((highlight) => (
                             <li key={highlight} className="leading-snug">
-                              {highlight}
+                              {highlight.endsWith("till now") ? (
+                                <>
+                                  {highlight.slice(0, -8)}
+                                  <span className="whitespace-nowrap">till now</span>
+                                </>
+                              ) : (
+                                highlight
+                              )}
                             </li>
                           ))}
                         </ul>
@@ -131,13 +138,17 @@ export default function SuccessStories() {
 
                     <div className="grid grid-cols-6 gap-2 sm:gap-3">
                       {data.images.map((image, index) => (
-                        <img
+                        <div
                           key={image}
-                          src={image}
-                          alt={`${data.title} student ${index + 1}`}
-                          loading="lazy"
-                          className="aspect-square w-full rounded-full border-2 border-[#FD6A02]/70 object-cover shadow-md"
-                        />
+                          className="aspect-square overflow-hidden rounded-full border-2 border-[#FD6A02]/70 shadow-md"
+                        >
+                          <img
+                            src={image}
+                            alt={`${data.title} student ${index + 1}`}
+                            loading="lazy"
+                            className="h-full w-full scale-[1.22] object-cover object-[center_28%]"
+                          />
+                        </div>
                       ))}
                     </div>
                   </div>
