@@ -11,7 +11,8 @@ type Program = {
   mini?: boolean;
 };
 
-const purchasePortal = "https://exam.rodha.co.in/";
+const miniPackagesUrl =
+  "https://exam.rodha.co.in/packages/RodhaMiniPackages/MTgyNQ==";
 
 const programs: Program[] = [
   {
@@ -79,7 +80,7 @@ const programs: Program[] = [
       "Mock Analysis",
       "Percentile Tracking",
     ],
-    href: purchasePortal,
+    href: miniPackagesUrl,
     mini: true,
   },
   {
@@ -92,7 +93,7 @@ const programs: Program[] = [
       "20 Quant Sectionals",
       "Detailed Video Solutions",
     ],
-    href: purchasePortal,
+    href: miniPackagesUrl,
     mini: true,
   },
   {
@@ -105,7 +106,7 @@ const programs: Program[] = [
       "Video Solutions",
       "Percentile Tracking",
     ],
-    href: purchasePortal,
+    href: miniPackagesUrl,
     mini: true,
   },
   {
@@ -116,7 +117,7 @@ const programs: Program[] = [
       "35 Sectionals of any one subject (VARC/LRDI/Quants)",
       "Detailed Video Solutions",
     ],
-    href: purchasePortal,
+    href: miniPackagesUrl,
     mini: true,
   },
 ];
