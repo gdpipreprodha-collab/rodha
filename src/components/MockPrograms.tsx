@@ -17,8 +17,8 @@ const miniPackagesUrl =
 const programs: Program[] = [
   {
     name: "Rodha CAT Mocks And OMETs Package Test",
-    oldPrice: "₹6,999",
-    price: "₹6,299/-",
+    oldPrice: "₹6,299",
+    price: "₹5,039/-",
     features: [
       "30 Full-length CAT Mocks",
       "10 XAT, 25 SNAP, And 15 NMAT Mocks",
@@ -33,8 +33,8 @@ const programs: Program[] = [
   },
   {
     name: "Rodha CAT Mocks & Sectional Tests",
-    oldPrice: "₹5,999",
-    price: "₹5,399/-",
+    oldPrice: "₹5,399",
+    price: "₹4,319/-",
     features: [
       "30 Full-length CAT Mocks",
       "105 Sectional Tests",
@@ -47,8 +47,8 @@ const programs: Program[] = [
   },
   {
     name: "Rodha CAT Mocks",
-    oldPrice: "₹3,499",
-    price: "₹3,149/-",
+    oldPrice: "₹3,149",
+    price: "₹2,519/-",
     features: [
       "30 Full-length CAT Mocks",
       "Comprehensive Video Solutions",
@@ -59,8 +59,8 @@ const programs: Program[] = [
   },
   {
     name: "Rodha Sectional Tests",
-    oldPrice: "₹3,499",
-    price: "₹3,149/-",
+    oldPrice: "₹3,149",
+    price: "₹2,519/-",
     features: [
       "105 Sectional Tests",
       "40+ Topic-wise Practice Modules",
@@ -72,8 +72,8 @@ const programs: Program[] = [
   },
   {
     name: "Mini Mocks",
-    oldPrice: "₹4,000",
-    price: "₹2,999/-",
+    oldPrice: "₹2,999",
+    price: "₹2,399/-",
     features: [
       "15 CAT Mocks",
       "Detailed Video Solutions",
@@ -85,8 +85,8 @@ const programs: Program[] = [
   },
   {
     name: "Mini Sectionals",
-    oldPrice: "₹2,500",
-    price: "₹1,999/-",
+    oldPrice: "₹1,999",
+    price: "₹1,599/-",
     features: [
       "20 VARC Sectionals",
       "20 LRDI Sectionals",
@@ -98,8 +98,8 @@ const programs: Program[] = [
   },
   {
     name: "Mini Combo",
-    oldPrice: "₹3,500",
-    price: "₹2,499/-",
+    oldPrice: "₹2,499",
+    price: "₹1,999/-",
     features: [
       "10 CAT Mocks",
       "30 Sectional Tests (10 Each)",
@@ -111,8 +111,8 @@ const programs: Program[] = [
   },
   {
     name: "Individual Sectionals",
-    oldPrice: "₹2,500",
-    price: "₹1,499/-",
+    oldPrice: "₹1,499",
+    price: "₹1,199/-",
     features: [
       "35 Sectionals of any one subject (VARC/LRDI/Quants)",
       "Detailed Video Solutions",
