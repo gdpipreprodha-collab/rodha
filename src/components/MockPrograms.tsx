@@ -17,8 +17,8 @@ const miniPackagesUrl =
 const programs: Program[] = [
   {
     name: "Rodha CAT Mocks And OMETs Package Test",
-    oldPrice: "₹6,299",
-    price: "₹5,039/-",
+    oldPrice: "₹6,999",
+    price: "₹5,599/-",
     features: [
       "30 Full-length CAT Mocks",
       "10 XAT, 25 SNAP, And 15 NMAT Mocks",
@@ -33,8 +33,8 @@ const programs: Program[] = [
   },
   {
     name: "Rodha CAT Mocks & Sectional Tests",
-    oldPrice: "₹5,399",
-    price: "₹4,319/-",
+    oldPrice: "₹5,999",
+    price: "₹4,799/-",
     features: [
       "30 Full-length CAT Mocks",
       "105 Sectional Tests",
@@ -47,8 +47,8 @@ const programs: Program[] = [
   },
   {
     name: "Rodha CAT Mocks",
-    oldPrice: "₹3,149",
-    price: "₹2,519/-",
+    oldPrice: "₹3,499",
+    price: "₹2,799/-",
     features: [
       "30 Full-length CAT Mocks",
       "Comprehensive Video Solutions",
@@ -59,8 +59,8 @@ const programs: Program[] = [
   },
   {
     name: "Rodha Sectional Tests",
-    oldPrice: "₹3,149",
-    price: "₹2,519/-",
+    oldPrice: "₹3,499",
+    price: "₹2,799/-",
     features: [
       "105 Sectional Tests",
       "40+ Topic-wise Practice Modules",
@@ -72,8 +72,8 @@ const programs: Program[] = [
   },
   {
     name: "Mini Mocks",
-    oldPrice: "₹2,999",
-    price: "₹2,399/-",
+    oldPrice: "₹1,999",
+    price: "₹1,599/-",
     features: [
       "15 CAT Mocks",
       "Detailed Video Solutions",
