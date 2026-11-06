@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import popupImage from "../assets/images/popup/popup-2025.jpeg";
+import popupImage from "../assets/images/popup/popup-diwali-2026.webp";
 
 export default function HomepagePopup() {
   const [isOpen, setIsOpen] = useState(true);
@@ -42,12 +42,12 @@ export default function HomepagePopup() {
       className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/80 p-3 backdrop-blur-sm sm:p-6"
       role="dialog"
       aria-modal="true"
-      aria-label="Rodha mock packages and mini series announcement"
+      aria-label="Rodha Diwali offer on CAT 2026 mock tests"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) setIsOpen(false);
       }}
     >
-      <div className="relative w-full max-w-[760px] overflow-hidden rounded-xl bg-black shadow-2xl ring-1 ring-white/20">
+      <div className="relative w-full max-w-[640px] overflow-hidden rounded-xl bg-black shadow-2xl ring-1 ring-white/20">
         <button
           type="button"
           onClick={() => setIsOpen(false)}
@@ -66,7 +66,7 @@ export default function HomepagePopup() {
         >
           <img
             src={popupImage}
-            alt="Rodha CAT mock packages and Rodha mini mock series plans"
+            alt="Rodha Diwali offer: CAT 2026 mock packages starting from ₹1,080, valid 2nd to 10th November"
             className="block h-auto max-h-[94vh] w-full object-contain"
           />
         </a>
